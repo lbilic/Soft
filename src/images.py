@@ -245,7 +245,7 @@ def load_train_data(directory):
         labels: [num_images, img_height, img_width]
     """
     train_data_dir = os.path.abspath(os.path.join(directory, 'images/'))
-    train_labels_dir = os.path.abspath(os.path.join(directory, 'groundtruth/'))
+    train_labels_dir = os.path.abspath(os.path.join(directory, 'labels/'))
 
     train_images = load(train_data_dir)
     train_groundtruth = load(train_labels_dir)
