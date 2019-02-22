@@ -430,8 +430,10 @@ def main(_):
                 tf.local_variables_initializer().run()  # Reset scores
 
                 # Drop last dimension if input image is not PNG-8
-                labels_patches = labels_patches[:, :, :, 0]
-                train_groundtruth = train_groundtruth[:, :, :, 0]
+                if(len(labels_patches.shape) == 4):
+                    labels_patches = labels_patches[:, :, :, 0]
+                if(len(train_groundtruth.shape) == 4):
+                    train_groundtruth = train_groundtruth[:, :, :, 0]
 
                 model.train(patches, labels_patches, train_images, train_groundtruth)  # Process one epoch
                 model.save(i)  # Save model to disk
